@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PersonneController!{% endblock %}
+
+{% block body %}
+<h1>  </h1>
+{% for personne in personnes %}
+    <h2>{{personne.nom}}</a></h2>
+
+    <h3>Liste des animaux possédés : </h3>
+
+    {% for dispose in personne.disposes %}
+        {#<img src="{{asset('images/'~ dispose.animal.image)}}">#}
+
+
+    <h4><a href="{{path('afficher_animal', {'id': dispose.animal.id})}}">{{dispose.animal.nom}}</a></h4>
+
+    <h4> Nombre : {{dispose.nombre}}<h4>
+    {% endfor %}
+
+{% endfor %}
+
+{% endblock %}

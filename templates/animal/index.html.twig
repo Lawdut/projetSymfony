@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnimalController!{% endblock %}
+
+{% block body %}
+    
+
+<h1>Les animaux</h1>
+
+<div class="example-wrapper">
+    <ul>
+    {% for animal in animaux %}
+        <li><a href ="{{ path('afficher_animal', {'id':animal.id})  }}"> {{animal.nom}}</a> de la couleur {{animal.color}}</li> {# en twig, il faut créer la route de cette manière avec le path. Il faut ensuite aller dans le controller pour créer la route qui correspond à la function #}
+        
+        {% for continent in animal.continents %}
+        {{continent.libelle}}
+        {% endfor %}
+
+        {% for dispose in animal.disposes %}
+            {{dispose.personne.nom}}
+        {% endfor %}
+
+    {% endfor %}
+
+    </ul>
+</div>
+{% endblock %}
