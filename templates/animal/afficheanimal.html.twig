@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnimalController!{% endblock %}
+
+{% block body %}
+
+
+<h1>{{animal.nom}}</h1>
+
+<div class="example-wrapper">
+    
+   
+        <p>{{animal.nom}} de la couleur {{animal.color}} de poids de {{animal.poids}} kg de l'espèce {{animal.espece.libelle}}</p>
+    
+    
+</div>
+{% endblock %}
