@@ -3,6 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Animal;
+use App\Entity\Espece;
+use App\Entity\Continent;
+
+//use App\Form\EspeceType;
+use Symfony\App\Form\ContinentType;
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,8 +24,19 @@ class AnimalType extends AbstractType
             ->add('color')
             ->add('famille')
             ->add('poids')
-            ->add('espece')
-            ->add('continents')
+            ->add('espece',EntityType::class,[
+                'class' => Espece::class,
+                'choice_label' => 'libelle'
+            ])
+            ->add('continents',EntityType::class,[
+                'class' => Continent::class,
+                'choice_label' => 'libelle',
+                'expanded' => true,
+                'multiple' => true,
+                'by_reference' => false,
+            ])
+            //->add('espece', EspeceType::class)
+            //->add('continent', ContinentType::class)
         ;
     }
 

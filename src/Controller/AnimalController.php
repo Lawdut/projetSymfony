@@ -38,7 +38,7 @@ class AnimalController extends AbstractController
      * @Route("/animaux/{poids}", name="animauxLegers")
      */
 
-     public function getAnimalleger(AnimalRepository $repository, $poids){
+     public function getAnimalLeger(AnimalRepository $repository, $poids){
 
         
         $animaux = $repository->getAnimauxLegers($poids);
